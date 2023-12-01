@@ -22,6 +22,9 @@ volatile-register = "0.2.2"
 bitfield = "0.13.2"
 embedded-hal = "0.2.4"
 
+[target.'cfg(any(unix, windows))'.dependencies]
+anknooin = { path = "../../lib" }
+
 [dependencies.serde]
 version = "1"
 features = [ "derive" ]

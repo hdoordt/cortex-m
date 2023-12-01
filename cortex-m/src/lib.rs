@@ -56,6 +56,7 @@
 #[macro_use]
 mod macros;
 
+#[cfg(not(any(unix, windows)))]
 pub mod asm;
 #[cfg(armv8m)]
 pub mod cmse;
@@ -77,3 +78,9 @@ mod critical_section;
 pub mod _export {
     pub use critical_section;
 }
+
+#[cfg(any(unix, windows))]
+use anknooin as _;
+
+#[cfg(any(unix, windows))]
+pub use anknooin::asm;
